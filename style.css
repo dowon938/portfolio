@@ -365,3 +365,44 @@ p {
   height: 2px;
   background-color: var(--color-white);
 }
+
+/* testimonial */
+
+#testimonials {
+  background-color: var(--color-light-white);
+}
+.testimonials {
+  margin: 40px;
+}
+.testimonial {
+  display: flex;
+  align-items: flex-end;
+  margin: 20px 0px;
+}
+
+.testimonial__avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+.testimonial__avatar:nth-child(odd) {
+  margin-right: 30px;
+}
+.testimonial__avatar:nth-child(even) {
+  margin-left: 30px;
+}
+.testiomonial__speech-bubble {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-white);
+  padding: 20px;
+  border-radius: 30px;
+}
+.testiomonial__speech-bubble p {
+  color: var(--color-light-grey);
+}
+.testiomonial__speech-bubble a {
+  color: var(--color-pink);
+}
