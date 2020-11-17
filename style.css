@@ -17,7 +17,7 @@
 
   /* Font size */
   --font-large: 48px;
-  --font-medium: 28px;
+  --font-medium: 24px;
   --font-regular: 18px;
   --font-small: 16px;
   --font-micro: 14px;
@@ -254,6 +254,9 @@ p {
 }
 
 /* Work */
+.work__container {
+  max-width: 1350px;
+}
 .work__categories {
   margin: 40px;
 }
@@ -262,6 +265,7 @@ p {
   border-radius: var(--size-border-radius);
   font-size: var(--font-regular);
   padding: 8px 40px;
+  margin-bottom: 24px;
 }
 .category__btn.active,
 .category__btn:hover {
@@ -371,8 +375,14 @@ p {
 #testimonials {
   background-color: var(--color-light-white);
 }
+.testimonial__container {
+  max-width: 1200px;
+}
 .testimonials {
   margin: 40px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
 }
 .testimonial {
   display: flex;
@@ -405,4 +415,26 @@ p {
 }
 .testiomonial__speech-bubble a {
   color: var(--color-pink);
+}
+
+/* Contact */
+#contact {
+  background-color: var(--color-pink);
+}
+.contact__title,
+.contact__email,
+.contact__links,
+.contact__right {
+  color: var(--color-white);
+}
+.contact__title {
+  margin: 32px 0px;
+}
+.contact__links {
+  font-size: var(--font-large);
+  margin: 24px 0;
+}
+.contact__links i:hover {
+  transform: scale(1.2);
+  transition: all var(--animation-duration) ease-in;
 }
