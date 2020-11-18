@@ -4,7 +4,7 @@
 const navbar = document.querySelector('#navbar');
 const navbarHeight = navbar.getBoundingClientRect().height;
 document.addEventListener('scroll', ()=> {
-    // console.log(window.scrollY);
+    console.log(window.scrollY);
     // console.log(`navbarHeight :${navbarHeight}`);
     if (navbarHeight<window.scrollY){
         navbar.classList.add('navbar--dark');
@@ -38,6 +38,18 @@ document.addEventListener('scroll',()=>{
     home.style.opacity = 1-window.scrollY/homeHeight;
 })
 
+// arrow btn
+const arrow = document.querySelector('.arrow--up');
+document.addEventListener('scroll', () => {
+    if (window.scrollY>homeHeight/2){
+    arrow.classList.add('arrow-pop');
+    } else {
+    arrow.classList.remove('arrow-pop');
+    }
+})
+arrow.addEventListener('click',()=>{
+scrollIntoView('#home');
+})
 
 
 
