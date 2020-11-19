@@ -128,31 +128,43 @@ p {
 }
 .navbar__toggle-btn {
   position: absolute;
-  top: 16px;
+  top: 20px;
   right: 20px;
   width: 36px;
   height: 30px;
   display: none;
+  cursor: pointer;
 }
-.navbar__toggle-btn:hover .navbar__toggle-btn span:nth-child(0) {
-  opacity: 0;
-}
+
 .navbar__toggle-btn span {
   position: absolute;
   background-color: var(--color-white);
   width: 100%;
   height: 4px;
   border-radius: 2.5px;
-}
-.navbar__toggle-btn span:nth-child(0) {
-  top: 0;
+  pointer-events: none;
+  transition: all var(--animation-duration) ease-in-out;
 }
 .navbar__toggle-btn span:nth-child(1) {
+  top: 0;
+}
+.navbar__toggle-btn span:nth-child(2) {
   top: 50%;
   transform: translateY(-50%);
 }
-.navbar__toggle-btn span:nth-child(2) {
+.navbar__toggle-btn span:nth-child(3) {
   bottom: 0;
+}
+.navbar__toggle-btn.checked span:nth-child(1) {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+.navbar__toggle-btn.checked span:nth-child(2) {
+  opacity: 0;
+}
+.navbar__toggle-btn.checked span:nth-child(3) {
+  bottom: 50%;
+  transform: translateY(50%) rotate(-45deg);
 }
 
 /* Home */
@@ -363,11 +375,11 @@ p {
   transition: all var(--animation-duration) ease-in;
 }
 .project:hover .project__description h3::after {
-  transform: rotate(-180deg);
+  transform: translateX(-50%) rotate(-180deg);
   transition: all var(--animation-duration) ease-in;
 }
 .project:hover .project__description span::before {
-  transform: rotate(180deg);
+  transform: translateX(-50%) rotate(180deg);
   transition: all var(--animation-duration) ease-in;
 }
 .project__img {
@@ -389,7 +401,7 @@ p {
 }
 
 .project__description h3 {
-  color: var(--color-white);
+  color: var(--color-yellow);
 }
 .project__description span {
   margin-top: 12px;
@@ -399,10 +411,10 @@ p {
   content: "";
   position: absolute;
   left: 50%;
-  margin-left: -12.5px;
+  transform: translateX(-50%);
   bottom: 47.5%;
   display: block;
-  width: 20px;
+  width: 40px;
   height: 2px;
   background-color: var(--color-white);
 }
@@ -411,10 +423,10 @@ p {
   content: "";
   position: absolute;
   left: 50%;
-  margin-left: -12.5px;
+  transform: translateX(-50%);
   bottom: 47.5%;
   display: block;
-  width: 20px;
+  width: 40px;
   height: 2px;
   background-color: var(--color-white);
 }
@@ -518,12 +530,19 @@ p {
   #navbar {
     flex-flow: column;
     align-items: flex-start;
+    background-color: var(--color-pink);
   }
   .navbar__menu {
     flex-flow: column;
     text-align: center;
     width: 100%;
     display: none;
+  }
+  .navbar__menu.checked {
+    flex-flow: column;
+    text-align: center;
+    width: 100%;
+    display: flex;
   }
   .about__majors {
     flex-flow: column;

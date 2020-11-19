@@ -11,6 +11,8 @@ document.addEventListener('scroll', ()=> {
     } else{
         navbar.classList.remove('navbar--dark');
     }
+    navbarMenu.classList.remove('checked');
+    navTog.classList.remove('checked');
 });
 
 // Handle scrolling when tapping on the navbar menu
@@ -23,6 +25,13 @@ navbarMenu.addEventListener('click',(event)=>{
     }
     scrollIntoView(link);
     // target.classList.add('active');
+});
+
+// navbar togglebtn
+const navTog = document.querySelector('.navbar__toggle-btn');
+navTog.addEventListener('click',()=> {
+    navTog.classList.toggle('checked');
+    navbarMenu.classList.toggle('checked');
 });
 
 // Handle scrolling when tapping on the contact me menu
@@ -85,6 +94,7 @@ categoryBtnContainer.addEventListener('click',(event)=>{
         projectContainer.classList.remove('anim-out');
     },300);
 });
+
 
 
 
