@@ -298,11 +298,12 @@ p {
   margin: 40px;
 }
 .category__btn {
+  width: 280px;
   border: 1px solid var(--color-dark-grey);
   border-radius: var(--size-border-radius);
   font-size: var(--font-regular);
   padding: 8px 40px;
-  margin-bottom: 24px;
+  margin: 3px 0px;
 }
 .category__btn.active,
 .category__btn:hover {
@@ -334,6 +335,11 @@ p {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  transition: all var(--animation-duration) ease-out;
+}
+.work__projects.anim-out {
+  opacity: 0.9;
+  transform: scale(0.98) translateY(10px);
 }
 .project {
   position: relative;
@@ -345,17 +351,20 @@ p {
   margin: 2px;
   background-color: var(--color-light-white);
 }
+.project.invisible {
+  display: none;
+}
 .project:hover .project__description {
   opacity: 0.8;
   transform: translateY(0);
   transition: all var(--animation-duration) ease-in;
 }
 .project:hover .project__description h3::after {
-  transform: rotate(-45deg);
+  transform: rotate(-180deg);
   transition: all var(--animation-duration) ease-in;
 }
 .project:hover .project__description span::before {
-  transform: rotate(45deg);
+  transform: rotate(180deg);
   transition: all var(--animation-duration) ease-in;
 }
 .project__img {
@@ -531,5 +540,9 @@ p {
   .testimonial__avatar {
     width: 80px;
     height: 80px;
+  }
+  .category__btn {
+    width: 190px;
+    margin: 3px 0px;
   }
 }
