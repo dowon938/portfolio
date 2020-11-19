@@ -22,6 +22,7 @@ navbarMenu.addEventListener('click',(event)=>{
         return;
     }
     scrollIntoView(link);
+    // target.classList.add('active');
 });
 
 // Handle scrolling when tapping on the contact me menu
@@ -55,7 +56,7 @@ scrollIntoView('#home');
 const categoryBtnContainer = document.querySelector('.work__categories');
 const projectContainer = document.querySelector('.work__projects');
 const projects = document.querySelectorAll('.project');
-console.log(projects);
+// console.log(projects);
 categoryBtnContainer.addEventListener('click',(event)=>{
     const filter = event.target.dataset.filter || event.target.parentNode.dataset.filter;
     // console.log('=========');
@@ -64,6 +65,13 @@ categoryBtnContainer.addEventListener('click',(event)=>{
     if (filter == null){
         return;
     }
+
+    // Remove selection from previous item and select the new one
+    const selected = document.querySelector('.category__btn.selected');
+    selected.classList.remove('selected');
+    const target = event.target.nodeName === 'BUTTON' ? event.target : event.target.parentNode;
+    target.classList.add('selected');
+
     projectContainer.classList.add('anim-out');
     setTimeout(()=>{
         projects.forEach((project) =>{
@@ -74,7 +82,8 @@ categoryBtnContainer.addEventListener('click',(event)=>{
                 project.classList.add('invisible');
             }
         });
-        projectContainer.classList.remove('anim-out');},300);
+        projectContainer.classList.remove('anim-out');
+    },300);
 });
 
 

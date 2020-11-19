@@ -116,6 +116,7 @@ p {
   padding: 8px 12px;
   margin: 0px 4px;
   border-radius: var(--size-border-radius);
+  border: 1px solid transparent;
   cursor: pointer;
 }
 .navbar__menu--item.active {
@@ -123,6 +124,7 @@ p {
 }
 .navbar__menu--item:hover {
   background-color: var(--color-dark-pink);
+  border: 1px solid var(--color-white);
 }
 .navbar__toggle-btn {
   position: absolute;
@@ -305,12 +307,12 @@ p {
   padding: 8px 40px;
   margin: 3px 0px;
 }
-.category__btn.active,
+.category__btn.selected,
 .category__btn:hover {
   background-color: var(--color-pink);
   color: var(--color-white);
 }
-.category__btn.active .category__count,
+.category__btn.selected .category__count,
 .category__btn:hover .category__count {
   top: 0;
   opacity: 1;
@@ -329,6 +331,7 @@ p {
   left: 4px;
   opacity: 0;
   transition: all var(--animation-duration) ease-in;
+  /* pointer-events: none; */
 }
 
 .work__projects {
