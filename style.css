@@ -57,6 +57,7 @@ button {
   cursor: pointer;
   border: none;
   outline: none;
+  padding: 0;
 }
 /* Typography */
 
@@ -108,6 +109,7 @@ p {
   margin: 20px;
   font-size: var(--font-medium);
   font-weight: var(--weight-semi-bold);
+  pointer-events: none;
 }
 .navbar__menu {
   display: flex;
@@ -129,10 +131,10 @@ p {
 }
 .navbar__toggle-btn {
   position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 36px;
-  height: 30px;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 26px;
   display: none;
   cursor: pointer;
 }
@@ -546,6 +548,7 @@ p {
   }
   .section {
     padding: 16px;
+    padding-top: 38px;
   }
   .navbar__toggle-btn {
     display: block;
@@ -554,6 +557,9 @@ p {
     flex-flow: column;
     align-items: flex-start;
     background-color: var(--color-pink);
+  }
+  .navbar__logo {
+    margin: 12px;
   }
   .navbar__menu {
     flex-flow: column;
@@ -608,5 +614,23 @@ p {
   .ETC,
   .tools {
     padding: 10px;
+  }
+  .testimonial {
+    flex-flow: column;
+    align-items: center;
+    margin: 10px 0px;
+  }
+  .testimonial__avatar {
+    order: 1;
+  }
+  .testimonial__avatar:nth-child(odd),
+  .testimonial__avatar:nth-child(even) {
+    margin: 0;
+    margin-bottom: 8px;
+    width: 120px;
+    height: 120px;
+  }
+  .testiomonial__speech-bubble {
+    order: 2;
   }
 }
