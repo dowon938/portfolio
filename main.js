@@ -95,10 +95,65 @@ categoryBtnContainer.addEventListener('click',(event)=>{
     },300);
 });
 
-
-
-
+// ScrollIntoVIEW function
 function scrollIntoView(selector) {
     const scrollTo = document.querySelector(selector);
     scrollTo.scrollIntoView({behavior: "smooth"});
 }
+
+// Scroll Nav menu Activation
+const sectionIds = ['#home','#about','#skills','#work','#testimonials','#contact'];
+const section = sectionIds.map(id => document.querySelector(id));
+const navMenu = sectionIds.map(id=> document.querySelector(`[data-link="${id}"]`))
+
+//Dowon'sVersion
+
+const observerOption = {
+    root:null,
+    rootMargin: '-40% 0% -60% 0%',
+    threshold:0
+};
+function observerCallback(entries,observer) {
+    entries.forEach(entry => {
+        const index = sectionIds.indexOf(`#${entry.target.id}`);
+        if (entry.isIntersecting){
+            navMenu[index].classList.add('active');
+        } else{
+            navMenu[index].classList.remove('active');
+        }
+    })
+}
+
+// 모든 섹션 요소들과 메뉴아이템들을 가져온다.
+// IntersectionObserver를 이용해서 모든 섹션을 관찰한다.
+// 보여지는 섹션에 해당 메뉴아이템을 활성시킨디ㅏ.
+
+// const observerOption = {
+//         root:null,
+//         rootMargin: '0px',
+//         threshold: 0
+// };
+
+// let selectItem = navMenu[0];
+
+// function observerCallback(entries,observer) {
+//     console.log(entries);
+//     entries.forEach(entry => {
+//         if (!entry.isIntersecting && entry.intersectionRatio>0){
+//             const index = sectionIds.indexOf(`#${entry.target.id}`);
+//             let selectedIndex;
+//             if (entry.boundingClientRect.y <0) {
+//                 selectedIndex = index +1;
+//             } else {
+//                 selectedIndex = index -1;
+//             }
+//             const navItem = navMenu[selectedIndex];
+//             selectItem.classList.remove('active');
+//             selectItem = navItem
+//             selectItem.classList.add('active');
+//         };
+//     });
+// }
+
+const observer = new IntersectionObserver(observerCallback,observerOption);
+section.forEach(section => observer.observe(section));

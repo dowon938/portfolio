@@ -121,6 +121,7 @@ p {
   border-radius: var(--size-border-radius);
   border: 1px solid transparent;
   cursor: pointer;
+  transition: all var(--animation-duration) ease-in-out;
 }
 .navbar__menu--item.active {
   border: 1px solid var(--color-white);
