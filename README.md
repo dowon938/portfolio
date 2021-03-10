@@ -43,13 +43,45 @@ function createHTML(item) {
 
 ## ToDoBalloon (https://github.com/dowon938/ToDoBalloon)
 ToDoList앱을 창의적으로 만들어보고 싶어서 만들게 된 앱<br>
-![todoballoon3](https://user-images.githubusercontent.com/68101878/110559794-38002100-8188-11eb-8390-5d29dc95be07.gif)
-![hi](https://user-images.githubusercontent.com/68101878/110617151-b08ece00-81d8-11eb-839c-0ae5d801be96.gif)
-### 구현사항
-* 일의 우선순위를 선택할수 있게 해서 그에 따라 색과 크기가 다르게 입력될 수 있도록 구현.
-* keyCode를 이용하여 키보드가 입력되는 모습을 가상 키보드로 구현.(추후에 타자연습 앱을 만들어 보고싶었음)
+<img src="https://user-images.githubusercontent.com/68101878/110559794-38002100-8188-11eb-8390-5d29dc95be07.gif" width="300">
+<img src="https://user-images.githubusercontent.com/68101878/110617151-b08ece00-81d8-11eb-839c-0ae5d801be96.gif" width="340">
 
+### 구현사항
+* 일의 우선순위를 선택하면 checked에 반영해서 tag를 만들 때 색과 크기가 다르게 만들어 지도록 구현.
+```JS
+submit.addEventListener('click', (event) => {
+  event.preventDefault();
+  const value = textInput.value;
+  if (value === '') {
+    return;
+  }
+  const priority = checked.innerHTML;
+  // console.log(value);
+  const item = document.createElement('li');
+  item.setAttribute('class', `${priority} ${priority}size`);
+  item.textContent = value;
+  toDoContainer.appendChild(item);
+  textRadio.classList.add('off');
+  textInput.value = '';
+});
+```
+* keyCode를 이용하여 키보드가 입력되는 모습을 가상 키보드로 구현.(추후에 타자연습 앱을 만들어 보고싶었음)
+```js
+textInput.addEventListener('keydown', (event) => {
+  let eventKey = document.querySelector(`[data-key='${event.code}']`);
+  eventKey.id = 'p';
+});
+textInput.addEventListener('keyup', (event) => {
+  let eventKey = document.querySelector(`[data-key='${event.code}']`);
+  eventKey.id = '';
+});
+```
 
 ## 감상
 * 떠오르는 풍선처럼 차곡차곡 화면 상단에 쌓이도록 하고 싶었으나, 아직 구현하지 못하였음. CANVAS.JS를 이용해야 할 것 같다.
-* 
+
+## JS101 드림코딩 엘리 아카데미 자바스크립트 강의 들으며 만든 앱들(https://github.com/dowon938/JS101)
+<img src="https://user-images.githubusercontent.com/68101878/110620770-c56d6080-81dc-11eb-8010-7de78c4f341b.gif" height="250">
+<img src="https://user-images.githubusercontent.com/68101878/110620776-c7372400-81dc-11eb-9c60-b61c134e1984.gif" height="250">
+<img src="https://user-images.githubusercontent.com/68101878/110620781-c8685100-81dc-11eb-8d09-7b400729a1c8.gif" height="250">
+
