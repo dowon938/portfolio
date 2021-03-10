@@ -139,7 +139,7 @@ function refreshTime() {
 HTML,CSS,vanillaJS 구현한 간단한 쇼핑리스트 앱.
 ![shopping](https://user-images.githubusercontent.com/68101878/110625103-58f56000-81e2-11eb-8da4-3145c08d1483.gif)
 ## 구현사항
-* 인풋 값을 전달받아 새로운 요소를 만드는 것에 너무 많은 코드가 필요했다.
+* 인풋 값을 전달받아 새로운 요소를 만드는 것에 너무 많은 코드가 필요했다. JS ES6 Template Literals 문법을 이용할 생각을 하지 못했음.
 ```js
 function createItem(text) {
     const item = document.createElement('li');
@@ -171,12 +171,8 @@ function createItem(text) {
     item.appendChild(label);
     item.appendChild(itemDelete);
     //scroll into item
-    item.scrollIntoView();
+    item.scrollIntoView(); // 쇼핑목록이 많아졌을때 새로 만들어진 것을 따라 스크롤하기위함.
 };
-
-// list.innerHTML = `
-            // <div class = 'list'>
-            //     <div class='${name.value}'>${name.value}</div>
-            //     <button class='remove'>
-            // </div>
 ```
+## 감상
+* 아주 간단한 앱인데도 써야하는 코드가 너무 많아, 프레임워크 라이브러리의 필요성을 느꼈다.
