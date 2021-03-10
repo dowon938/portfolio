@@ -42,5 +42,9 @@ function createHTML(item) {
 
 
 # ToDoBalloon (https://github.com/dowon938/ToDoBalloon)
+ToDoList앱을 창의적으로 만들어보고 싶어서 만들게 된 앱
 ![todoballoon3](https://user-images.githubusercontent.com/68101878/110559794-38002100-8188-11eb-8390-5d29dc95be07.gif)
-
+## 구현사항
+* 일의 우선순위를 선택할수 있게 해서 그에 따라 색과 크기가 다르게 입력될 수 있도록 구현.
+* keyCode를 이용하여 키보드가 입력되는 모습을 가상 키보드로 구현.(추후에 타자연습 앱을 만들어 보고싶었음)
+* 
