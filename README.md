@@ -73,7 +73,7 @@ textInput.addEventListener('keyup', (event) => {
 ```
 
 ## 감상
-* 떠오르는 풍선처럼 차곡차곡 화면 상단에 쌓이도록 하고 싶었으나, 아직 구현하지 못하였음. CANVAS.JS를 이용해야 할 것 같다.
+* 떠오르는 풍선처럼 차곡차곡 화면 상단에 쌓이며, 원끼리 서로 밀쳐지는 애니메이션을 구현하고 싶었으나, 아직 구현하지 못하였음. CANVAS.JS를 공부해야 할 것 같다.
 ___
 
 ## 간단한 쇼핑리스트 (https://github.com/dowon938/shopping-templateDW)
