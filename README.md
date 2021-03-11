@@ -133,6 +133,15 @@ HTML,CSS,vanillaJS 이용하여 만든 간단한 게임
 ![carrotgame](https://user-images.githubusercontent.com/68101878/110623221-e84d4400-81df-11eb-8025-a8d73b3ba40a.gif)
 ### 구현사항
 * 시간 안에 당근을 모두 클릭해서 없애면 승리, 벌레를 클릭하면 패배, 시간초과시에도 패배.
+* 타이머와 남은 당근갯수를 업데이트 해주는 점수판, 랜덤으로 당근과 벌레를 배치시키는 것을 구현했다.
+* 당근과 벌레를 랜덤으로 배치시키는 것은 JS로 CSS의 top,left값에 0~100%사이에 위치 시키는 것으로 해결했다.
+  (100%가 되면 화면밖으로 나가버리기 때문에 %를 조절하며 맞추려했으나, 필드 자체를 당근과 벌레의 px만큼 줄여서 해결하는 것이 더 정확하고 쉬웠다.)
+```js
+classNmes.forEach((className)=>{
+        className.style.top = `${getRandomInt(100)}%`;
+        className.style.left = `${getRandomInt(100)}%`;
+    }
+```
 * 당연히 타이머 API가 있다고 생각했는데, 검색 후 setInterval()API로 1초마다 타이머 태그의 innerHTML을 변경해서 해결하였다.
 ```js
 function refreshTime() {
