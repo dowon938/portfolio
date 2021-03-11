@@ -7,7 +7,12 @@ HTML,CSS,vanillaJS 로 포트폴리오 사이트 클론코딩<br>
 ![porfolio](https://user-images.githubusercontent.com/68101878/110553169-f1a4c500-817b-11eb-9fb3-08989e354816.gif)
 ### 구현사항
 * css @media screen query를 이용한 반응형 디자인 구현.
-* getBoundingClientRect()으로 홈 레이아웃의 크기를 받아와서 윈도우 스크롤Y값과 연동해 점점 투명해지도록 구현. (home.style.opacity = 1 - window.scrollY / homeHeight;)
+* getBoundingClientRect()으로 홈 레이아웃의 크기를 받아와서 윈도우 스크롤Y값과 연동해 점점 투명해지도록 구현.
+```js
+document.addEventListener('scroll', () => {
+  home.style.opacity = 1 - window.scrollY / homeHeight;
+});
+```
 * scrollIntoView() API를 이용해 카테고리 버튼 클릭시 해당하는 곳으로 이동하도록 구현.
 * 스크롤시 해당되는 카테고리 버튼이 active 되는 기능은 IntersectionObserver() API를 이용해 화면 가운데 20% 부분에 해당되는 카테고리 버튼에 active되도록 구현.
 ### 감상
@@ -176,3 +181,33 @@ function createItem(text) {
 ```
 ## 감상
 * 아주 간단한 앱인데도 써야하는 코드가 너무 많아, 프레임워크 라이브러리의 필요성을 느꼈다.
+
+## Habit Tracker
+react로 만든 첫번째 앱<br>
+![habittracker](https://user-images.githubusercontent.com/68101878/110725476-0310ce80-825b-11eb-881b-5e56e4fa9b7e.gif)
+### 구현사항
+* 각각의 습관을 habit컴포넌트로 만들고 습관을 담고 있는 컨테이너를 habits컴포넌트로 만들었다. 그 외에 header와 습관을 추가할 수 있는 add reset 버튼을 각각 컴포넌트로 만들었다.
+* habit안에는 {id, name, count,} state가 필요했는데 header, add, reset 과 같은 컴포넌트에서도 접근하기 위해서 app.jsx에서 state를 관리했다.
+* 그리고 id(key)값은 중복을 피하기위해 Date.now()를 사용했다.
+```jsx
+state = {
+    habits: [
+      { id: 1, name: 'Reading', count: 0 },
+      { id: 2, name: 'Running', count: 0 },
+      { id: 3, name: 'Coding', count: 0 },
+    ],
+  };
+  //id 에는 중복되지 않는 값을 사용하기위해 date.now()를 사용했다.
+  addHabit = (name) => {
+    const habits = [...this.state.habits, { id: Date.now(), name, count: 0 }];
+    this.setState({ habits });
+  };
+  ```
+* 그리고 성능 개선을 위해 PureComponent를 배워 적용했다. PureComponent는 state변화를 얕은비교(shallow comparison)을 하는데, 오브젝트 내의 모든값을 샅샅히 비교하는 것이 아니라
+  참조값이 변경된 부분의 값만 확인해 업데이트 해준다. 이를 적용하기 위해 배열을 부분적으로 수정하는 문법을 익히는 것이 어려웠다.
+  
+## 감상
+* props를 통해 자식컴포넌트에 요소를 전달하는게 익숙하지 않아 애를 먹었지만, 순수 자바스크립트로 프로젝트를 만들때보다 훨씬 작업이 용이했다.
+* state로 데이터를 관리해주는 것도 너무 편했고, 특히 state의 값의 변화가 있으면 다시 렌더링 해주는 것이 신세계였다.
+* jsx문법을 이용하니 html에 변수를 사용할 수 있는 것도 너무 편리하다. 그리고 dom에 접근할때 React.createRef()를 이용하여 직접 돔에 ref={this.abcRef}로 접근하는 것도 편하다.
+  
