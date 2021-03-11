@@ -1,7 +1,7 @@
 ## portfolio
 
 dowon's portfolio
-최신에 배운 것들이 위쪽으로 오게 정리해두었습니다.
+※아래로 갈수록 예전 것입니다:)
 
 ## Habit Tracker (https://github.com/dowon938/habit-tracker)
 react로 만든 첫번째 앱<br>
