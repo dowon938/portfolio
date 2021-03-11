@@ -128,7 +128,7 @@ tag.innerHTML = `window.screen : ${window.screen.width},${window.screen.height}<
                 window.inner : ${window.innerWidth},${window.innerHeight}</br>        //innersize는 컨텐츠가 보여지는 영역(간혹 스크롤바사이즈를 포함하기도함)
                 documentElement.clientWidth : ${document.documentElement.clientWidth},${document.documentElement.clientHeight}` //컨텐츠가 보여지는영역(스크롤바제외)
 ```
-## JS101 당근게임
+## JS101 당근게임 (https://github.com/dowon938/JS101/tree/main/carrot)
 HTML,CSS,vanillaJS 이용하여 만든 간단한 게임
 ![carrotgame](https://user-images.githubusercontent.com/68101878/110623221-e84d4400-81df-11eb-8025-a8d73b3ba40a.gif)
 ### 구현사항
@@ -164,7 +164,7 @@ function refreshTime() {
 * 버그를 수정하면서 함수는 최대한 간단하게 만들어 재사용 하는 것이 좋다는 것을 느낌. 하나의 함수에서 너무 많은 것들을 하게 되면 버그를 잡기도 힘들고 다른사람이 보기에도 어렵다.
 * 타이머를 만드는 데에도 수식이 필요하다는 것이 신선한 충격이었다. (1분이 60초가 아니라 1:00 로 표현되기 위해서 남은 초를 60으로 나누어 몫을 분으로, 나머지를 초로 변수에 할당하였다.)
 
-## JS101쇼핑리스트
+## JS101쇼핑리스트 (https://github.com/dowon938/JS101/tree/main/chpater3)
 HTML,CSS,vanillaJS 구현한 간단한 쇼핑리스트 앱.
 ![shopping](https://user-images.githubusercontent.com/68101878/110625103-58f56000-81e2-11eb-8da4-3145c08d1483.gif)
 ## 구현사항
